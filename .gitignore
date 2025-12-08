@@ -28,6 +28,8 @@ FlappyPlane/[Aa]ssets/Plugins/Editor/JetBrains*
 # Visual Studio cache directory
 FlappyPlane/.vs/
 .vs/
+.vsconfig
+settings.json
 
 # Gradle cache directory
 FlappyPlane/.gradle/

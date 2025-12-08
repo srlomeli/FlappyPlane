@@ -7,6 +7,7 @@ public class PlaneController : MonoBehaviour
 
     [SerializeField] private float gravityScale = 5f;
     [SerializeField] private float movementSpeed = 5f;
+    [SerializeField] private float speedIncreaseRate = 0.1f;
     [SerializeField] private float jumpForce = 8f;
     [SerializeField] private float maxVeloctiyRoation = 75;
     [SerializeField] private float rotationMultiplier = 0;
@@ -14,6 +15,7 @@ public class PlaneController : MonoBehaviour
 
     [SerializeField] private float deathForce = 2;
 
+    private float _timeOfGameStart;
     private bool isDead;
     private bool isOnFloor;
 
@@ -38,8 +40,10 @@ public class PlaneController : MonoBehaviour
     void Update()
     {
         if (!isDead)
-        {
-            rb2D.linearVelocityX = movementSpeed;
+        {   
+            float timeInGame = Time.timeSinceLevelLoad - _timeOfGameStart;
+            float currentSpeed = movementSpeed + (timeInGame * speedIncreaseRate);
+            rb2D.linearVelocityX = currentSpeed;
             bool jumpKeyPressed = Input.GetKeyDown(KeyCode.Space) | Input.GetMouseButtonDown(0);
             rb2D.linearVelocityY = jumpKeyPressed ? jumpForce : rb2D.linearVelocityY;
             rb2D.linearVelocityY = Mathf.Clamp(rb2D.linearVelocityY,-maxVeloctiyY, jumpForce);
@@ -87,6 +91,7 @@ public class PlaneController : MonoBehaviour
 
     public void OnStart()
     {
+        _timeOfGameStart = Time.timeSinceLevelLoad;
         rb2D.gravityScale = gravityScale;
     }
 }

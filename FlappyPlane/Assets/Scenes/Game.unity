@@ -582,6 +582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlaneController
   gravityScale: 5
   movementSpeed: 5
+  speedIncreaseRate: 0.1
   jumpForce: 8
   maxVeloctiyRoation: 75
   rotationMultiplier: 0
@@ -1276,7 +1277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 394286874}
   pipePrefab: {fileID: 5358192497712605196, guid: f52d7b25fb8f1664681eb3489d61c6e8, type: 3}
-  pipeDistance: 5
+  pipeDistance: 10
   pipeGenerationDst: 25
   pipeDestructionDst: 25
   pipePosYRange: {x: -2, y: 1}

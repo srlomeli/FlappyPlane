@@ -10,7 +10,7 @@ public class WorldGenerator : MonoBehaviour
     private Vector2 lastPipePosition => pipes.Count > 0 ? pipes[0].transform.position : Vector2.positiveInfinity;
     private float nextPipeX;
     [SerializeField] private GameObject pipePrefab;
-    [SerializeField] private float pipeDistance = 5;
+    [SerializeField] private float pipeDistance = 8;
     [SerializeField] private float pipeGenerationDst = 100;
     [SerializeField] private float pipeDestructionDst = 100;
     [SerializeField] private Vector2 pipePosYRange = new Vector2(-5, 5);
